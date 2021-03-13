@@ -1,6 +1,6 @@
 FROM adoptopenjdk:11.0.10_9-jre-hotspot-focal@sha256:e34db425ecac523ea29fa0d3cbefdda89e7e19bceb0fbe0ea4d5b91764003807
 
-ENV KAFKA_VERSION=2.7.0 SCALA_VERSION=2.13
+ENV KAFKA_VERSION=2.5.1 SCALA_VERSION=2.13
 
 RUN set -ex; \
   export DEBIAN_FRONTEND=noninteractive; \
@@ -13,8 +13,8 @@ RUN set -ex; \
   \
   SCALA_BINARY_VERSION=$(echo $SCALA_VERSION | cut -f 1-2 -d '.'); \
   mkdir -p /opt/kafka; \
-  curl -f -sLS -o kafka_$SCALA_BINARY_VERSION-$KAFKA_VERSION.tgz.asc https://www.apache.org/dist/kafka/$KAFKA_VERSION/kafka_$SCALA_BINARY_VERSION-$KAFKA_VERSION.tgz.asc; \
-  curl -f -sLS -o kafka_$SCALA_BINARY_VERSION-$KAFKA_VERSION.tgz "https://www-eu.apache.org/dist/kafka/$KAFKA_VERSION/kafka_$SCALA_BINARY_VERSION-$KAFKA_VERSION.tgz"; \
+  curl -f -sLS -o kafka_$SCALA_BINARY_VERSION-$KAFKA_VERSION.tgz.asc https://archive.apache.org/dist/kafka/$KAFKA_VERSION/kafka_$SCALA_BINARY_VERSION-$KAFKA_VERSION.tgz.asc; \
+  curl -f -sLS -o kafka_$SCALA_BINARY_VERSION-$KAFKA_VERSION.tgz "https://archive.apache.org/dist/kafka/$KAFKA_VERSION/kafka_$SCALA_BINARY_VERSION-$KAFKA_VERSION.tgz"; \
   gpg --verify kafka_$SCALA_BINARY_VERSION-$KAFKA_VERSION.tgz.asc kafka_$SCALA_BINARY_VERSION-$KAFKA_VERSION.tgz; \
   tar xzf kafka_$SCALA_BINARY_VERSION-$KAFKA_VERSION.tgz --strip-components=1 -C /opt/kafka; \
   rm kafka_$SCALA_BINARY_VERSION-$KAFKA_VERSION.tgz; \
