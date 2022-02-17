@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11.0.13_8-jdk-focal@sha256:e36def1e27583cce3786e17b3736b996b5536c01515f2863984823451710c248
+FROM eclipse-temurin:11.0.13_8-jdk-focal
 
 
 ENV EXPORTER_VERSION=d2d8a2214b9a869f40cc3cb145c37c7840ca

@@ -96,3 +96,7 @@ git restore --source=HEAD --staged --worktree -- native/configs/
 # The cli image should simply combine the supported commands
 docker run --rm --entrypoint sh solsson/kafka:native-cli -c 'ls ./bin/'
 ```
+
+## TrackUnit customization
+prometheus-jmx-exporter has been updated with latest image and app version.
+Set new version and use `build.sh` script in order to build and push the image.
